@@ -1,0 +1,2 @@
+Target dependency graph (1 target)
+Target 'Real_Giggle_RiyaT' in project 'Real_Giggle_RiyaT' (no dependencies)

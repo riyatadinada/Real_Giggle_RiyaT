@@ -3,7 +3,7 @@
 //  Giggle_RiyaTad
 //
 //  Created by Riya Tadinada on 3/10/26.
-//
+// content view will be especially useful for me later when I have to code the navigation through the provider's perspecitve
 
 import SwiftUI
 
@@ -28,14 +28,13 @@ struct ContentView: View {
                         .frame(width: 140, height: 140)
                         .clipShape(Circle())
                 }
+                
                 .padding(.top, 40)
 
                 Spacer()
 
                 VStack(spacing: 20) {
-                    Button {
-                        showProviderAlert = true
-                    } label: {
+                    NavigationLink(destination: AuthChoiceView(role: .provider)) {
                         Text("I AM A SERVICE PROVIDER")
                             .font(.headline)
                             .foregroundColor(.black)
@@ -45,14 +44,9 @@ struct ContentView: View {
                     .background(Color.orange.opacity(0.85))
                     .clipShape(Capsule())
                     .padding(.horizontal, 40)
-                    .alert("Provider selected", isPresented: $showProviderAlert) {
-                        Button("OK", role: .cancel) { }
-                    } message: {
-                        Text("This will navigate to the provider flow.")
-                    }
 
-                    // NavigationLink to ExploreView for receivers
-                    NavigationLink(destination: ExploreView()) {
+                    // NavigationLink to AuthChoiceView for receivers
+                    NavigationLink(destination: AuthChoiceView()) {
                         Text("I AM A SERVICE RECEIVER")
                             .font(.headline)
                             .foregroundColor(.black)
@@ -65,8 +59,6 @@ struct ContentView: View {
                 }
 
                 Spacer()
-                // Bottom toolbar visible on landing for both roles
-                BottomToolbar(role: .both)
              }
              .navigationTitle("")
              .navigationBarHidden(true)
@@ -77,4 +69,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(Session())
+        .environment(\.session, Session())
 }

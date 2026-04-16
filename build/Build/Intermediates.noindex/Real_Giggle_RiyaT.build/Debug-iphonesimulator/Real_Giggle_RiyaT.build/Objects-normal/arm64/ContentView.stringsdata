@@ -1,0 +1,56 @@
+{
+  "source": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "Provider selected",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "I AM A SERVICE PROVIDER",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 39
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "This will navigate to the provider flow.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "I AM A SERVICE RECEIVER",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 56
+        }
+      }
+    ]
+  },
+  "version": 1
+}

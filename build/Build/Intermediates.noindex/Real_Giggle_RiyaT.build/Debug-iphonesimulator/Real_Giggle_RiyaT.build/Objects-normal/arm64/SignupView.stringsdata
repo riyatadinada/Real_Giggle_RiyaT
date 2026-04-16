@@ -1,0 +1,152 @@
+{
+  "source": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/SignupView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 177
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create account",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Fill in your details to create an account",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "Passwords do not match",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 147
+        }
+      },
+      {
+        "comment": "",
+        "key": "Email",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 103
+        }
+      },
+      {
+        "comment": "",
+        "key": "First name",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 46
+        }
+      },
+      {
+        "comment": "",
+        "key": "Last name",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Birthday",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 59
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 63
+        }
+      },
+      {
+        "comment": "",
+        "key": "School",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "School",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "Grade",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 88
+        }
+      },
+      {
+        "comment": "",
+        "key": "Grade",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 92
+        }
+      },
+      {
+        "comment": "",
+        "key": "Password",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 113
+        }
+      },
+      {
+        "comment": "",
+        "key": "Password",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 116
+        }
+      },
+      {
+        "comment": "",
+        "key": "Confirm password",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 131
+        }
+      },
+      {
+        "comment": "",
+        "key": "Confirm password",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 134
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create account",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 160
+        }
+      }
+    ]
+  },
+  "version": 1
+}

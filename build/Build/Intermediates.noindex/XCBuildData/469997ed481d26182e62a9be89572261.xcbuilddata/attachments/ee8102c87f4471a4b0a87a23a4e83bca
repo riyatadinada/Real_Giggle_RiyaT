@@ -1,0 +1,109 @@
+{
+  "" : {
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaT-primary.dia",
+    "emit-module-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaT-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaT-primary-emit-module.dia",
+    "pch" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaT-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaT-primary.swiftdeps"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/AuthChoiceView.swift" : {
+    "const-values" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/AuthChoiceView.swiftconstvalues",
+    "dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/AuthChoiceView.d",
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/AuthChoiceView.dia",
+    "index-unit-output-path" : "/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/AuthChoiceView.o",
+    "llvm-bc" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/AuthChoiceView.bc",
+    "object" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/AuthChoiceView.o",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/AuthChoiceView.swiftdeps",
+    "swiftmodule" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/AuthChoiceView~partial.swiftmodule"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/BottomToolbar.swift" : {
+    "const-values" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/BottomToolbar.swiftconstvalues",
+    "dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/BottomToolbar.d",
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/BottomToolbar.dia",
+    "index-unit-output-path" : "/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/BottomToolbar.o",
+    "llvm-bc" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/BottomToolbar.bc",
+    "object" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/BottomToolbar.o",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/BottomToolbar.swiftdeps",
+    "swiftmodule" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/BottomToolbar~partial.swiftmodule"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/ContentView.swift" : {
+    "const-values" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/ExploreView.swift" : {
+    "const-values" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ExploreView.swiftconstvalues",
+    "dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ExploreView.d",
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ExploreView.dia",
+    "index-unit-output-path" : "/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ExploreView.o",
+    "llvm-bc" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ExploreView.bc",
+    "object" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ExploreView.o",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ExploreView.swiftdeps",
+    "swiftmodule" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ExploreView~partial.swiftmodule"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/ImagePicker.swift" : {
+    "const-values" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ImagePicker.swiftconstvalues",
+    "dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ImagePicker.d",
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ImagePicker.dia",
+    "index-unit-output-path" : "/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ImagePicker.o",
+    "llvm-bc" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ImagePicker.bc",
+    "object" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ImagePicker.o",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ImagePicker.swiftdeps",
+    "swiftmodule" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ImagePicker~partial.swiftmodule"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/LoginView.swift" : {
+    "const-values" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/LoginView.swiftconstvalues",
+    "dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/LoginView.d",
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/LoginView.dia",
+    "index-unit-output-path" : "/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/LoginView.o",
+    "llvm-bc" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/LoginView.bc",
+    "object" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/LoginView.o",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/LoginView.swiftdeps",
+    "swiftmodule" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/LoginView~partial.swiftmodule"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/ProfileView.swift" : {
+    "const-values" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ProfileView.swiftconstvalues",
+    "dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ProfileView.d",
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ProfileView.dia",
+    "index-unit-output-path" : "/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ProfileView.o",
+    "llvm-bc" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ProfileView.bc",
+    "object" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ProfileView.o",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ProfileView.swiftdeps",
+    "swiftmodule" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/ProfileView~partial.swiftmodule"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/Real_Giggle_RiyaTApp.swift" : {
+    "const-values" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaTApp.swiftconstvalues",
+    "dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaTApp.d",
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaTApp.dia",
+    "index-unit-output-path" : "/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaTApp.o",
+    "llvm-bc" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaTApp.bc",
+    "object" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaTApp.o",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaTApp.swiftdeps",
+    "swiftmodule" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/Real_Giggle_RiyaTApp~partial.swiftmodule"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/SignupView.swift" : {
+    "const-values" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/SignupView.swiftconstvalues",
+    "dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/SignupView.d",
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/SignupView.dia",
+    "index-unit-output-path" : "/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/SignupView.o",
+    "llvm-bc" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/SignupView.bc",
+    "object" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/SignupView.o",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/SignupView.swiftdeps",
+    "swiftmodule" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/SignupView~partial.swiftmodule"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/build/Build/Intermediates.noindex/Real_Giggle_RiyaT.build/Debug-iphonesimulator/Real_Giggle_RiyaT.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}

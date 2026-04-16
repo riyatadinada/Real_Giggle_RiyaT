@@ -1,0 +1,24 @@
+{
+  "source": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/ExploreView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 78
+        }
+      },
+      {
+        "comment": "",
+        "key": "EXPLORE",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 53
+        }
+      }
+    ]
+  },
+  "version": 1
+}

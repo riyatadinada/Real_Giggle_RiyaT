@@ -1,0 +1,48 @@
+{
+  "source": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/AuthChoiceView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "Welcome",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 7
+        }
+      },
+      {
+        "comment": "",
+        "key": "Do you already have an account?",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 11
+        }
+      },
+      {
+        "comment": "",
+        "key": "Log in",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 17
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create account",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 28
+        }
+      }
+    ]
+  },
+  "version": 1
+}

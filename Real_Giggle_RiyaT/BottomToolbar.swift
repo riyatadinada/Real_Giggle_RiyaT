@@ -8,39 +8,80 @@ enum ToolbarRole {
 
 struct BottomToolbar: View {
     let role: ToolbarRole
+    // accept a session optionally so previews or callers can pass it explicitly
+    var session: Session?
+    @Environment(\.session) private var envSession: Session?
+
+    init(role: ToolbarRole, session: Session? = nil) {
+        self.role = role
+        self.session = session
+    }
 
     var body: some View {
         HStack(spacing: 20) {
-            NavigationLink(destination: PlaceholderView(title: "Profile")) {
-                VStack { Image(systemName: "person.crop.circle"); Text("Profile").font(.caption) }
+            // Profile - if user exists, push to their profile, otherwise show placeholder requesting login
+            let currentUser = session?.currentUser ?? envSession?.currentUser
+
+            if let user = currentUser {
+                NavigationLink(destination: ProfileView(profile: user)) {
+                    VStack { Image(systemName: "person.crop.circle"); Text("Profile").font(.caption) }
+                }
+            } else {
+                NavigationLink(destination: PlaceholderView(title: "Profile")) {
+                    VStack { Image(systemName: "person.crop.circle"); Text("Profile").font(.caption) }
+                }
             }
 
-            NavigationLink(destination: PlaceholderView(title: "Home")) {
-                VStack { Image(systemName: "house"); Text("Home").font(.caption) }
-            }
-
-            NavigationLink(destination: PlaceholderView(title: "Messages")) {
+            NavigationLink(destination: MessagesView()) {
                 VStack { Image(systemName: "bubble.left.and.bubble.right"); Text("Messages").font(.caption) }
             }
 
-            NavigationLink(destination: PlaceholderView(title: "Media")) {
-                VStack { Image(systemName: "play.circle"); Text("Media").font(.caption) }
+            // Media: providers can post, receivers can browse
+            if (session?.role ?? envSession?.role) == .provider {
+                NavigationLink(destination: MediaViewProvider()) {
+                    VStack { Image(systemName: "play.circle"); Text("Media").font(.caption) }
+                }
+            } else {
+                NavigationLink(destination: MediaView()) {
+                    VStack { Image(systemName: "play.circle"); Text("Media").font(.caption) }
+                }
             }
 
-            NavigationLink(destination: PlaceholderView(title: "Settings")) {
-                VStack { Image(systemName: "gearshape"); Text("Settings").font(.caption) }
+            // Update Settings NavigationLink to route to role-appropriate settings view based on session role
+            switch session?.role ?? envSession?.role {
+            case .provider:
+                NavigationLink(destination: SettingsProviderView()) {
+                    VStack { Image(systemName: "gearshape"); Text("Settings").font(.caption) }
+                }
+            case .receiver:
+                NavigationLink(destination: SettingsReceiverView()) {
+                    VStack { Image(systemName: "gearshape"); Text("Settings").font(.caption) }
+                }
+            default:
+                NavigationLink(destination: PlaceholderView(title: "Settings")) {
+                    VStack { Image(systemName: "gearshape"); Text("Settings").font(.caption) }
+                }
             }
 
             switch role {
             case .provider:
-                NavigationLink(destination: PlaceholderView(title: "Ratings")) {
-                    VStack { Image(systemName: "star"); Text("Ratings").font(.caption) }
+                NavigationLink(destination: ExploreView()) {
+                    VStack { Image(systemName: "safari"); Text("Explore").font(.caption) }
+                }
+                if let user = currentUser {
+                    NavigationLink(destination: RatingView(provider: user)) {
+                        VStack { Image(systemName: "star"); Text("Ratings").font(.caption) }
+                    }
+                } else {
+                    NavigationLink(destination: PlaceholderView(title: "Ratings")) {
+                        VStack { Image(systemName: "star"); Text("Ratings").font(.caption) }
+                    }
                 }
             case .receiver:
-                NavigationLink(destination: PlaceholderView(title: "Search")) {
+                NavigationLink(destination: SearchView()) {
                     VStack { Image(systemName: "magnifyingglass"); Text("Search").font(.caption) }
                 }
-                NavigationLink(destination: PlaceholderView(title: "Explore")) {
+                NavigationLink(destination: ExploreView()) {
                     VStack { Image(systemName: "safari"); Text("Explore").font(.caption) }
                 }
             case .both:
@@ -79,7 +120,7 @@ struct BlurView: UIViewRepresentable {
 struct BottomToolbar_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            VStack { Spacer(); BottomToolbar(role: .receiver) }
+            VStack { Spacer(); BottomToolbar(role: .receiver, session: Session()) }
         }
     }
 }

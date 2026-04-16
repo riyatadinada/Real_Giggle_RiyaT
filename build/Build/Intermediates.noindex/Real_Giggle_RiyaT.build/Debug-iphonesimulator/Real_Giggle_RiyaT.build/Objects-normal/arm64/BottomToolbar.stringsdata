@@ -1,0 +1,96 @@
+{
+  "source": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/Real_Giggle_RiyaT/BottomToolbar.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Profile",
+        "location": {
+          "startingColumn": 72,
+          "startingLine": 15
+        }
+      },
+      {
+        "comment": "",
+        "key": "Home",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 19
+        }
+      },
+      {
+        "comment": "",
+        "key": "Messages",
+        "location": {
+          "startingColumn": 82,
+          "startingLine": 23
+        }
+      },
+      {
+        "comment": "",
+        "key": "Media",
+        "location": {
+          "startingColumn": 65,
+          "startingLine": 27
+        }
+      },
+      {
+        "comment": "",
+        "key": "Settings",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 31
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ratings",
+        "location": {
+          "startingColumn": 62,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search",
+        "location": {
+          "startingColumn": 73,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "Explore",
+        "location": {
+          "startingColumn": 64,
+          "startingLine": 44
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ratings",
+        "location": {
+          "startingColumn": 62,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search",
+        "location": {
+          "startingColumn": 73,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ view coming soon",
+        "location": {
+          "startingColumn": 14,
+          "startingLine": 66
+        }
+      }
+    ]
+  },
+  "version": 1
+}

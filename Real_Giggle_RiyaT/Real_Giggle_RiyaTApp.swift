@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Real_Giggle_RiyaTApp: App {
+    @StateObject private var session = Session()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(session)
+                .environment(\.session, session)
         }
     }
 }
