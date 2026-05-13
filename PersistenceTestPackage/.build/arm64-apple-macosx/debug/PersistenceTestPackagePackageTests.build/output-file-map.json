@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/PersistenceTestPackage/.build/arm64-apple-macosx/debug/PersistenceTestPackagePackageTests.build/master.swiftdeps"
+  },
+  "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/PersistenceTestPackage/.build/arm64-apple-macosx/debug/PersistenceTestPackagePackageTests.derived/runner.swift": {
+    "dependencies": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/PersistenceTestPackage/.build/arm64-apple-macosx/debug/PersistenceTestPackagePackageTests.build/runner.d",
+    "object": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/PersistenceTestPackage/.build/arm64-apple-macosx/debug/PersistenceTestPackagePackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/PersistenceTestPackage/.build/arm64-apple-macosx/debug/PersistenceTestPackagePackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/PersistenceTestPackage/.build/arm64-apple-macosx/debug/PersistenceTestPackagePackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Users/riyatadinada/Desktop/SPD/Real_Giggle_RiyaT/PersistenceTestPackage/.build/arm64-apple-macosx/debug/PersistenceTestPackagePackageTests.build/runner.dia"
+  }
+}

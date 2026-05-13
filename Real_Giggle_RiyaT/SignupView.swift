@@ -1,7 +1,12 @@
 import SwiftUI
 
 struct SignupView: View {
-    var role: UserRole = .receiver
+    var role: UserRole
+    // allow pre-filling an email when navigating from LoginView
+    init(initialEmail: String = "", role: UserRole = .receiver) {
+        self.role = role
+        _email = State(initialValue: initialEmail)
+    }
     @Environment(\.session) private var sessionRef: Session?
     @Environment(\.dismiss) private var dismiss
     @State private var firstName: String = ""
@@ -16,6 +21,10 @@ struct SignupView: View {
     @State private var showConfirmPassword: Bool = false
     @State private var navigateToProfile: Bool = false
     @State private var profileToShow: UserProfile? = nil
+
+    // alert state
+    @State private var showAlert: Bool = false
+    @State private var alertMessage: String = ""
 
     private let schools = ["Castilleja"]
     private let grades = ["9", "10", "11", "12"]
@@ -155,12 +164,25 @@ struct SignupView: View {
 
                     Button(action: {
                         if isFormValid {
+                            // check if email already registered
+                            if sessionRef?.isEmailRegistered(email) == true {
+                                alertMessage = "An account with this email already exists. Please log in or use a different email."
+                                showAlert = true
+                                return
+                            }
+
                             // construct the profile to pass
                             let newProfile = UserProfile(firstName: firstName, lastName: lastName, birthday: birthday, school: selectedSchool, grade: selectedGrade, email: email)
                             profileToShow = newProfile
                             // set as current user in session
                             sessionRef?.currentUser = newProfile
                             sessionRef?.role = role
+                            // register the email for persistence
+                            sessionRef?.registerEmail(email)
+                            // save credential securely in Keychain
+                            sessionRef?.saveCredential(email: email, password: password)
+                            // add to profiles list so the full profile is saved
+                            sessionRef?.addProfile(newProfile)
                             navigateToProfile = true
                         }
                     }) {
@@ -202,6 +224,9 @@ struct SignupView: View {
                         .foregroundColor(.black)
                 }
             }
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Notice"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
     }
 }

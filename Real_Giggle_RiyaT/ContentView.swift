@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.session) private var session: Session?
     @State private var showProviderAlert = false
     // remove the receiver alert in favor of navigation
     @State private var showReceiverAlert = false
@@ -28,8 +29,9 @@ struct ContentView: View {
                         .frame(width: 140, height: 140)
                         .clipShape(Circle())
                 }
-                
                 .padding(.top, 40)
+
+                // (Removed BubbleCloud preview to avoid showing bubbles on the welcome/login landing page)
 
                 Spacer()
 
@@ -71,4 +73,35 @@ struct ContentView: View {
     ContentView()
         .environmentObject(Session())
         .environment(\.session, Session())
+}
+
+struct PostRow: View {
+    @Environment(\.session) private var session: Session?
+    let post: ServicePost
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(post.text)
+                .font(.body)
+                .foregroundStyle(.primary)
+            HStack(spacing: 8) {
+                let canShowName = session?.messagedUserIDs.contains(post.author.id) == true
+                Text(canShowName ? "\(post.author.firstName) \(post.author.lastName)" : "Anonymous")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                Spacer()
+                Text(post.date, style: .date)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .padding(12)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .onTapGesture {
+            // Consider this as "clicked message xxx person" to reveal the name thereafter
+            if let id = session?.currentUser?.id, id != post.author.id {
+                session?.markMessaged(with: post.author.id)
+            }
+        }
+    }
 }

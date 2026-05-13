@@ -11,6 +11,11 @@ struct LoginView: View {
     // Navigation state to push to ProfileView after successful (mock) login
     @State private var navigateToProfile: Bool = false
     @State private var loggedProfile: UserProfile = UserProfile(firstName: "", lastName: "", birthday: Date(), school: "Castilleja", grade: "11", email: "", bio: nil, skills: [], image: nil)
+    @State private var navigateToSignup: Bool = false
+
+    // alert
+    @State private var showAlert: Bool = false
+    @State private var alertMessage: String = ""
 
     var isFormValid: Bool { !email.trimmingCharacters(in: .whitespaces).isEmpty && !password.isEmpty }
 
@@ -55,12 +60,31 @@ struct LoginView: View {
 
                 // Enter button
                 Button(action: {
-                    // Mock login success: build a basic UserProfile from the email and navigate
-                    let namePart = email.split(separator: "@").first.map(String.init) ?? ""
-                    let capitalized = namePart.split(separator: ".").first.map { $0.capitalized } ?? ""
-                    loggedProfile.firstName = capitalized.isEmpty ? "User" : String(capitalized)
-                    loggedProfile.lastName = ""
-                    loggedProfile.email = email
+                    // Check email registration first
+                    if sessionRef?.isEmailRegistered(email) != true {
+                        // Not registered -> navigate to signup prefilled with email
+                        navigateToSignup = true
+                        return
+                    }
+
+                    // Verify password stored in Keychain
+                    if sessionRef?.verifyCredential(email: email, password: password) != true {
+                        alertMessage = "Incorrect password. If you forgot your password, please reset it or sign up again."
+                        showAlert = true
+                        return
+                    }
+
+                    // Attempt to load full profile by email
+                    if let p = sessionRef?.profileForEmail(email) {
+                        loggedProfile = p
+                    } else {
+                        // Fallback: create a minimal profile from the email
+                        let namePart = email.split(separator: "@").first.map(String.init) ?? ""
+                        let capitalized = namePart.split(separator: ".").first.map { $0.capitalized } ?? ""
+                        loggedProfile.firstName = capitalized.isEmpty ? "User" : String(capitalized)
+                        loggedProfile.lastName = ""
+                        loggedProfile.email = email
+                    }
                     // Set session
                     sessionRef?.currentUser = loggedProfile
                     sessionRef?.role = role
@@ -95,6 +119,9 @@ struct LoginView: View {
         .navigationDestination(isPresented: $navigateToProfile) {
             ProfileView(profile: loggedProfile)
         }
+        .navigationDestination(isPresented: $navigateToSignup) {
+            SignupView(initialEmail: email, role: role)
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: { dismiss() }) {
@@ -104,6 +131,9 @@ struct LoginView: View {
             }
         }
         .padding(.top)
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Notice"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        }
     }
 }
 

@@ -208,8 +208,32 @@ struct MediaCard: View {
 
     private func toggleFavorite() {
         guard let uid = session?.currentUser?.id else { return }
-        if post.favorites.contains(uid) { post.favorites.remove(uid) }
-        else { post.favorites.insert(uid) }
+        if post.favorites.contains(uid) {
+            // unfavorite locally
+            post.favorites.remove(uid)
+
+            // remove matching saved media from session (match by author and caption)
+            if let s = session {
+                if let idx = s.savedMedia.firstIndex(where: { ($0.authorID == post.author.id) && (($0.caption ?? "") == post.caption) }) {
+                    s.savedMedia.remove(at: idx)
+                }
+            }
+        } else {
+            // favorite locally
+            post.favorites.insert(uid)
+
+            // create a persistent MediaItem and add to session.savedMedia
+            if let s = session {
+                let imgData: Data?
+                if let img = post.image {
+                    imgData = img.jpegData(compressionQuality: 0.8)
+                } else {
+                    imgData = nil
+                }
+                let item = MediaItem(authorID: post.author.id, authorName: "\(post.author.firstName) \(post.author.lastName)", caption: post.caption, imageData: imgData)
+                s.saveMediaItem(item)
+            }
+        }
     }
 
     private func initials(for p: UserProfile) -> String {

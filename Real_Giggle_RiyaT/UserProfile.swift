@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import CloudKit
 
 // Central user profile model used across multiple views
 struct UserProfile: Codable, Identifiable, Hashable {
@@ -13,11 +14,13 @@ struct UserProfile: Codable, Identifiable, Hashable {
     var bio: String?
     var skills: [String]
     var credentials: [String]
+    // Optional CloudKit record name for users signed in with iCloud
+    var cloudRecordName: String?
 
     // UIImage cannot be encoded directly; keep an in-memory image property
     var image: UIImage?
 
-    init(id: UUID = UUID(), firstName: String, lastName: String, birthday: Date, school: String, grade: String, email: String, bio: String? = nil, skills: [String] = [], credentials: [String] = [], image: UIImage? = nil) {
+    init(id: UUID = UUID(), firstName: String, lastName: String, birthday: Date, school: String, grade: String, email: String, bio: String? = nil, skills: [String] = [], credentials: [String] = [], image: UIImage? = nil, cloudRecordName: String? = nil) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
@@ -29,11 +32,12 @@ struct UserProfile: Codable, Identifiable, Hashable {
         self.skills = skills
         self.credentials = credentials
         self.image = image
+        self.cloudRecordName = cloudRecordName
     }
 
     // Coding keys include all codable properties; image is encoded as Data under `imageData`
     private enum CodingKeys: String, CodingKey {
-        case id, firstName, lastName, birthday, school, grade, email, bio, skills, credentials, imageData
+        case id, firstName, lastName, birthday, school, grade, email, bio, skills, credentials, imageData, cloudRecordName
     }
 
     // Custom encode to transform UIImage -> Data
@@ -49,6 +53,7 @@ struct UserProfile: Codable, Identifiable, Hashable {
         try container.encodeIfPresent(bio, forKey: .bio)
         try container.encode(skills, forKey: .skills)
         try container.encode(credentials, forKey: .credentials)
+        try container.encodeIfPresent(cloudRecordName, forKey: .cloudRecordName)
 
         if let img = image {
             // Use JPEG representation for smaller size; fallback to PNG if JPEG fails
@@ -71,6 +76,7 @@ struct UserProfile: Codable, Identifiable, Hashable {
         bio = try container.decodeIfPresent(String.self, forKey: .bio)
         skills = try container.decode([String].self, forKey: .skills)
         credentials = try container.decodeIfPresent([String].self, forKey: .credentials) ?? []
+        cloudRecordName = try container.decodeIfPresent(String.self, forKey: .cloudRecordName)
 
         if let imageData = try container.decodeIfPresent(Data.self, forKey: .imageData) {
             image = UIImage(data: imageData)

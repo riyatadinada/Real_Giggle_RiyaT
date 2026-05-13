@@ -19,12 +19,25 @@ struct SettingsProviderView: View {
             }
 
             Section(header: Text("Past Jobs")) {
-                // Placeholder: In a real app this would be historical completed jobs
-                if let posts = session?.providerPosts, !posts.isEmpty {
-                    ForEach(posts) { p in
-                        VStack(alignment: .leading) {
-                            Text(p.text).font(.body)
-                            Text("Posted on \(p.date, style: .date)").font(.caption).foregroundColor(.secondary)
+                if let feedbacks = session?.providerFeedbacks, !feedbacks.isEmpty {
+                    ForEach(feedbacks) { fb in
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(fb.postText.isEmpty ? "Completed job" : fb.postText)
+                                .font(.body)
+                            HStack(spacing: 8) {
+                                if let r = fb.rating {
+                                    Label("Rated: \(r)★", systemImage: "star.fill")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                } else {
+                                    Text("Awaiting rating")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                Text((fb.date ?? Date()), style: .date)
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
                 } else {

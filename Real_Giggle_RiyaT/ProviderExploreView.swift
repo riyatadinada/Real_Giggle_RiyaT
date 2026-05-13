@@ -3,7 +3,6 @@ import SwiftUI
 struct ProviderExploreView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.session) private var session: Session?
-    @State private var posts: [String] = ["I provide dog walking in Palo Alto", "I tutor calculus in Mountain View"]
     @State private var showComposer = false
 
     var body: some View {
@@ -15,13 +14,24 @@ struct ProviderExploreView: View {
             }
             .padding()
 
-            List {
-                ForEach(posts, id: \.self) { p in
-                    HStack {
-                        Image(systemName: "megaphone.fill").foregroundColor(.orange)
-                        Text(p)
+            // Providers should see receiver requests; show them from session
+            if let reqs = session?.receiverRequests, !reqs.isEmpty {
+                List {
+                    ForEach(reqs) { r in
+                        HStack {
+                            Image(systemName: "megaphone.fill").foregroundColor(.orange)
+                            VStack(alignment: .leading) {
+                                Text("\(r.author.firstName) \(r.author.lastName)")
+                                    .font(.headline)
+                                Text(r.text).font(.subheadline).foregroundColor(.secondary)
+                            }
+                        }
+                        .padding(.vertical, 8)
                     }
-                    .padding(.vertical, 8)
+                }
+            } else {
+                List {
+                    Text("No requests yet")
                 }
             }
 
@@ -42,8 +52,9 @@ struct ProviderExploreView: View {
         }
         .sheet(isPresented: $showComposer) {
             ProviderPostComposer { text in
-                posts.insert(text, at: 0)
                 showComposer = false
+                guard let s = session, let user = s.currentUser, !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+                s.addProviderPost(text: text, author: user)
             }
         }
         .safeAreaInset(edge: .bottom) {

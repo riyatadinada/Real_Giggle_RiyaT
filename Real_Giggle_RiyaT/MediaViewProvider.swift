@@ -39,7 +39,7 @@ struct MediaViewProvider: View {
         }
         .sheet(isPresented: $showComposer) {
             ProviderMediaComposer { caption, image in
-                var post = MediaPost(author: session?.currentUser ?? UserProfile(firstName: "You", lastName: "", birthday: Date(), school: "Castilleja", grade: "", email: "", bio: nil, skills: [], credentials: [], image: image), image: image, caption: caption)
+                let post = MediaPost(author: session?.currentUser ?? UserProfile(firstName: "You", lastName: "", birthday: Date(), school: "Castilleja", grade: "", email: "", bio: nil, skills: [], credentials: [], image: image), image: image, caption: caption)
                 posts.insert(post, at: 0)
                 showComposer = false
             }

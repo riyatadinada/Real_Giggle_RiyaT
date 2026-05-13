@@ -8,8 +8,38 @@ struct ExploreView: View {
     @State private var pendingFeedbackToShow: ServiceFeedback? = nil
     @State private var showingPendingFeedback = false
 
-    private var isProvider: Bool { (session?.role == .provider) ?? false }
+    private var isProvider: Bool { session?.role == .provider }
     private var posts: [ServicePost] { isProvider ? (session?.receiverRequests ?? []) : (session?.providerPosts ?? []) }
+
+    // For receivers, expose the current user's own requests (both pending and completed)
+    private var myPendingRequests: [ServicePost] {
+        guard let s = session, let me = s.currentUser else { return [] }
+        return s.receiverRequests.filter { $0.author.id == me.id }
+    }
+    private var myCompletedRequests: [ServicePost] {
+        guard let s = session, let me = s.currentUser else { return [] }
+        return s.pastServicesReceived.filter { $0.author.id == me.id }
+    }
+
+    // For providers, expose the current user's own provided services
+    private var myProvidedServices: [ServicePost] {
+        guard let s = session, let me = s.currentUser else { return [] }
+        return s.providerPosts.filter { $0.author.id == me.id }
+    }
+
+    // Heuristic: count receiver requests that might be interested in a provider post.
+    // We do a simple keyword match: split provider post text into words (length >= 3)
+    // and count receiver requests containing any of those words (case-insensitive).
+    private func interestedRequestCount(for post: ServicePost) -> Int {
+        guard let s = session else { return 0 }
+        let words = Set(post.text.lowercased().components(separatedBy: CharacterSet.alphanumerics.inverted).filter { $0.count >= 3 })
+        guard !words.isEmpty else { return 0 }
+        return s.receiverRequests.filter { req in
+            let txt = req.text.lowercased()
+            for w in words { if txt.contains(w) { return true } }
+            return false
+        }.count
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -22,6 +52,77 @@ struct ExploreView: View {
             .padding([.top, .horizontal])
 
             Divider().padding(.horizontal)
+
+            // For receivers show providerPosts as cloud at the top
+            if !(session?.providerPosts.isEmpty ?? true) && !(isProvider) {
+                BubbleCloud(posts: session?.providerPosts ?? [])
+                    .padding(.horizontal)
+            }
+
+            // Show the current receiver's own requests at the very top so they can remember
+            // what they asked for and see whether any have been completed/accepted.
+            if !isProvider {
+                if let s = session, s.currentUser != nil {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Your requests")
+                            .font(.headline)
+                            .padding(.horizontal)
+
+                        // Pending requests (newest first)
+                        if !myPendingRequests.isEmpty {
+                            ForEach(myPendingRequests) { req in
+                                PostCard(post: req, isProviderView: false, currentUser: s.currentUser)
+                                    .padding(.horizontal)
+                            }
+                        }
+
+                        // Completed requests (recent completions)
+                        if !myCompletedRequests.isEmpty {
+                            Text("Completed")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                                .padding(.horizontal)
+                            ForEach(myCompletedRequests) { req in
+                                PostCard(post: req, isProviderView: false, currentUser: s.currentUser)
+                                    .padding(.horizontal)
+                            }
+                        }
+                    }
+                }
+            }
+
+            // For providers, show their own services at the top so they can remember
+            // what they offer and see if there are requests that seem to match / express interest.
+            if isProvider {
+                if let s = session, s.currentUser != nil {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Your services")
+                            .font(.headline)
+                            .padding(.horizontal)
+
+                        if !myProvidedServices.isEmpty {
+                            ForEach(myProvidedServices) { svc in
+                                let count = interestedRequestCount(for: svc)
+                                ZStack(alignment: .topTrailing) {
+                                    PostCard(post: svc, isProviderView: false, currentUser: s.currentUser)
+                                    if count > 0 {
+                                        Text("\(count) interested")
+                                            .font(.caption2)
+                                            .padding(.horizontal, 8)
+                                            .padding(.vertical, 4)
+                                            .background(Color.blue.opacity(0.12))
+                                            .foregroundColor(.blue)
+                                            .clipShape(Capsule())
+                                            .padding(.trailing, 24)
+                                            .padding(.top, 8)
+                                    }
+                                }
+                                .padding(.horizontal)
+                            }
+                        }
+                    }
+                }
+            }
 
             ScrollView {
                 LazyVStack(spacing: 12, pinnedViews: []) {
@@ -71,7 +172,7 @@ struct ExploreView: View {
         .onAppear {
             // if current user is a receiver and has pending feedback, present it
             guard let s = session, let me = s.currentUser else { return }
-            if ((s.role == .receiver) ?? false) {
+            if s.role == .receiver {
                 if let pending = s.pendingFeedbacks.first(where: { $0.receiverID == me.id }) {
                     pendingFeedbackToShow = pending
                     showingPendingFeedback = true
@@ -115,6 +216,28 @@ struct ExploreView: View {
                                     .foregroundColor(.secondary)
                             }
 
+                            // If this post belongs to the current user, show a small status for
+                            // receiver requests only. Provider-authored provider posts will be
+                            // handled in the provider "Your services" section (showing interested counts).
+                            if post.author.id == currentUser?.id {
+                                Spacer()
+                                if !post.isProviderPost {
+                                    // Determine status: pending if still in receiverRequests, completed if in pastServicesReceived
+                                    if let sess = session {
+                                        let completed = sess.pastServicesReceived.contains(where: { $0.id == post.id })
+                                        Text(completed ? "Completed" : "Pending")
+                                            .font(.caption2)
+                                            .padding(.horizontal, 8)
+                                            .padding(.vertical, 4)
+                                            .background(completed ? Color.green.opacity(0.15) : Color.yellow.opacity(0.12))
+                                            .foregroundColor(completed ? .green : .orange)
+                                            .clipShape(Capsule())
+                                    }
+                                }
+                            } else {
+                                Spacer()
+                            }
+
                             Spacer()
 
                             Text(relativeTime(for: post.date))
@@ -154,10 +277,6 @@ struct ExploreView: View {
                             .font(.subheadline)
                     }
                     .buttonStyle(.bordered)
-                    .background(
-                        NavigationLink(destination: MessageView(with: post.author), isActive: $navigateToMessages) { EmptyView() }
-                            .hidden()
-                    )
 
                     // If provider viewing receiver requests, allow marking as completed
                     if isProviderView {
@@ -182,6 +301,9 @@ struct ExploreView: View {
             }
             .padding()
             .background(RoundedRectangle(cornerRadius: 12).fill(Color(.systemBackground)).shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.04), radius: 4, x: 0, y: 2))
+            .navigationDestination(isPresented: $navigateToMessages) {
+                MessageView(with: post.author)
+            }
         }
 
         private var avatar: some View {
@@ -282,3 +404,4 @@ struct ExploreView: View {
     .environmentObject(Session())
     .environment(\.session, Session())
 }
+

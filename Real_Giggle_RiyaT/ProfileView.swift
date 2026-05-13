@@ -53,21 +53,27 @@ struct ProfileView: View {
 
             // Edit button when editable; Message button when viewing others
             if isEditable {
-                Button("Edit profile") {
-                    // present edit flow or focus editable fields
-                }
-                .buttonStyle(.bordered)
-            } else {
-                NavigationLink(destination: MessageView(with: profileState), isActive: $showMessage) {
-                    Button(action: { showMessage = true }) {
-                        Text("Message")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding(.vertical, 10)
-                            .frame(maxWidth: 180)
-                            .background(Color.blue)
-                            .clipShape(Capsule())
+                HStack(spacing: 12) {
+                    Button("Save") {
+                        commitChanges()
                     }
+                    .buttonStyle(.borderedProminent)
+
+                    Button("Done") {
+                        commitChanges()
+                        dismiss()
+                    }
+                    .buttonStyle(.bordered)
+                }
+            } else {
+                Button(action: { showMessage = true }) {
+                    Text("Message")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding(.vertical, 10)
+                        .frame(maxWidth: 180)
+                        .background(Color.blue)
+                        .clipShape(Capsule())
                 }
             }
 
@@ -88,66 +94,70 @@ struct ProfileView: View {
             }
             .padding(.horizontal)
 
-            // Skills Editor or read-only chips
-            VStack(alignment: .leading) {
-                Text("Skills")
-                    .font(.headline)
-                if isEditable && (session?.role == .provider || session?.role == nil) {
-                    HStack {
-                        TextField("Add a skill", text: $newSkill)
-                            .padding(10)
-                            .background(RoundedRectangle(cornerRadius: 8).fill(Color(.systemGray6)))
-                        Button("Add") {
-                            let trimmed = newSkill.trimmingCharacters(in: .whitespaces)
-                            if !trimmed.isEmpty {
-                                profileState.skills.append(trimmed)
-                                newSkill = ""
+            // Skills & Credentials: hidden for receivers
+            if session?.role != .receiver {
+                // Skills Editor or read-only chips
+                VStack(alignment: .leading) {
+                    Text("Skills")
+                        .font(.headline)
+                    // Only providers (or previews) can add skills when editable
+                    if isEditable && ((session?.role == .provider) || session?.role == nil) {
+                        HStack {
+                            TextField("Add a skill", text: $newSkill)
+                                .padding(10)
+                                .background(RoundedRectangle(cornerRadius: 8).fill(Color(.systemGray6)))
+                            Button("Add") {
+                                let trimmed = newSkill.trimmingCharacters(in: .whitespaces)
+                                if !trimmed.isEmpty {
+                                    profileState.skills.append(trimmed)
+                                    newSkill = ""
+                                }
                             }
+                            .buttonStyle(.borderedProminent)
                         }
-                        .buttonStyle(.borderedProminent)
+                    }
+
+                    // Skills chips
+                    FlowLayout(items: profileState.skills, id: \.self) { skill in
+                        Text(skill)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(Color(.systemGray5))
+                            .clipShape(Capsule())
                     }
                 }
+                .padding(.horizontal)
 
-                // Skills chips
-                FlowLayout(items: profileState.skills, id: \.self) { skill in
-                    Text(skill)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 6)
-                        .background(Color(.systemGray5))
-                        .clipShape(Capsule())
-                }
-            }
-            .padding(.horizontal)
-
-            // Credentials section
-            VStack(alignment: .leading) {
-                Text("Credentials")
-                    .font(.headline)
-                if isEditable && (session?.role == .provider || session?.role == nil) {
-                    HStack {
-                        TextField("Add credential (e.g., CPR)", text: $newSkill)
-                            .padding(10)
-                            .background(RoundedRectangle(cornerRadius: 8).fill(Color(.systemGray6)))
-                        Button("Add") {
-                            let trimmed = newSkill.trimmingCharacters(in: .whitespaces)
-                            if !trimmed.isEmpty {
-                                profileState.credentials.append(trimmed)
-                                newSkill = ""
+                // Credentials section
+                VStack(alignment: .leading) {
+                    Text("Credentials")
+                        .font(.headline)
+                    if isEditable && ((session?.role == .provider) || session?.role == nil) {
+                        HStack {
+                            TextField("Add credential (e.g., CPR)", text: $newSkill)
+                                .padding(10)
+                                .background(RoundedRectangle(cornerRadius: 8).fill(Color(.systemGray6)))
+                            Button("Add") {
+                                let trimmed = newSkill.trimmingCharacters(in: .whitespaces)
+                                if !trimmed.isEmpty {
+                                    profileState.credentials.append(trimmed)
+                                    newSkill = ""
+                                }
                             }
+                            .buttonStyle(.bordered)
                         }
-                        .buttonStyle(.bordered)
+                    }
+
+                    FlowLayout(items: profileState.credentials, id: \.self) { cred in
+                        Text(cred)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(Color(.systemGray5))
+                            .clipShape(Capsule())
                     }
                 }
-
-                FlowLayout(items: profileState.credentials, id: \.self) { cred in
-                    Text(cred)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 6)
-                        .background(Color(.systemGray5))
-                        .clipShape(Capsule())
-                }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
 
             Spacer()
 
@@ -162,11 +172,15 @@ struct ProfileView: View {
             // save edited values back into profile model (if needed)
             profileState.bio = bioText
             if let img = inputImage { profileState.image = img }
+            commitChanges()
         }
         .navigationTitle("")
+        .navigationDestination(isPresented: $showMessage) {
+            MessageView(with: profileState)
+        }
         .overlay(PerspectiveIndicator(), alignment: .topTrailing)
         .safeAreaInset(edge: .bottom) {
-            BottomToolbar(role: ((session?.role == .provider) ?? false) ? .provider : .receiver)
+            BottomToolbar(role: (session?.role == .provider) ? .provider : .receiver)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -194,6 +208,15 @@ struct ProfileView: View {
                     Image(systemName: "person.fill").font(.title)
                 }
             }
+        }
+    }
+
+    private func commitChanges() {
+        // push local edits into the global session.currentUser if it's the same user
+        profileState.bio = bioText
+        if let img = inputImage { profileState.image = img }
+        if let s = session, s.currentUser?.id == profileState.id {
+            s.currentUser = profileState
         }
     }
 }
